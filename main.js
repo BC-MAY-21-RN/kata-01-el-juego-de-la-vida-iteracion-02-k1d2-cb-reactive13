@@ -7,15 +7,15 @@ class Celula {
 }
 
 class Mundo {
-    constructor(columns, rows) {
-        this.columns = columns;
+    constructor(rows, columns) {
         this.rows = rows;
+        this.columns = columns;
         this.celula = [,];
     }
 
     inicio() {
-        for (var i = 0; i < columns; i++){
-            for (var j = 0; j < rows; j++){
+        for (var i = 0; i < rows; i++){
+            for (var j = 0; j < columns; j++){
                 this.celula[i, j] = new Celula(false, i, j);
             }
         }
@@ -24,8 +24,8 @@ class Mundo {
     toString() {
         var output = "";
 
-        for (var i = 0; i < columns; i++){
-            for (var j = 0; j < rows; j++){
+        for (var i = 0; i < rows; i++){
+            for (var j = 0; j < columns; j++){
                 if (this.celula[i, j].life == true)
                     output += '*'
                 else
@@ -40,9 +40,9 @@ function rules() {
     
 }
 
-var columns = prompt("Numero de columnas");
-var rows = prompt("Numero de filas");
-var mundo = new Mundo(columns, rows);
+var rows = prompt("Numero de Filas");
+var columns = prompt("Numero de Columnas");
+var mundo = new Mundo(rows, columns);
 mundo.inicio();
 
 var n = prompt("Numero de celulas vivas");
